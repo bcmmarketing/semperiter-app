@@ -24,14 +24,11 @@ const Navbar = () => {
   }, []);
   
   const links = [
-    { name: "Subir", path: "/upload", protected: false },
-    { name: "Explorar", path: "/explorar", protected: false },
-    { name: "Contacto", path: "/contacto", protected: false },
+    { name: "Dashboard", path: "/dashboard" },
+    { name: "Subir", path: "/upload" },
+    { name: "Explorar", path: "/explorar" },
+    { name: "Contacto", path: "/contacto" },
   ];
-
-  const dashboardLink = { name: "Dashboard", path: "/dashboard" };
-
-  const userLinks = [];
 
   const adminLinks = [
     { name: "Admin", path: "/admin" },
@@ -59,18 +56,6 @@ const Navbar = () => {
         
         {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center space-x-6">
-          {isAuthenticated && (
-            <Link
-              to={dashboardLink.path}
-              className={`text-sm font-medium transition-all duration-200 ${
-                isActive(dashboardLink.path)
-                  ? "text-brand-blue dark:text-brand-green font-semibold"
-                  : "text-brand-navy/80 dark:text-brand-yellow hover:text-brand-navy dark:hover:text-brand-yellow/80"
-              }`}
-            >
-              {dashboardLink.name}
-            </Link>
-          )}
           {links.map((link) => (
             <Link
               key={link.path}
@@ -84,7 +69,7 @@ const Navbar = () => {
               {link.name}
             </Link>
           ))}
-          {isAuthenticated && userLinks.map((link) => (
+          {isAdmin && adminLinks.map((link) => (
             <Link
               key={link.path}
               to={link.path}
@@ -153,9 +138,7 @@ const Navbar = () => {
       {isMenuOpen && (
         <div className="md:hidden bg-background/95 backdrop-blur-md animate-fade-in">
           <div className="container mx-auto px-4 py-4 flex flex-col space-y-4">
-            {links
-              .filter(link => !link.protected || isAuthenticated)
-              .map((link) => (
+            {links.map((link) => (
                 <Link
                   key={link.path}
                   to={link.path}
@@ -169,7 +152,7 @@ const Navbar = () => {
                   {link.name}
                 </Link>
               ))}
-            {isAuthenticated && userLinks.map((link) => (
+            {isAdmin && adminLinks.map((link) => (
               <Link
                 key={link.path}
                 to={link.path}
