@@ -24,14 +24,13 @@ const Navbar = () => {
   }, []);
   
   const links = [
+    { name: "Dashboard", path: "/dashboard", protected: true },
     { name: "Subir", path: "/upload", protected: false },
     { name: "Explorar", path: "/explorar", protected: false },
     { name: "Contacto", path: "/contacto", protected: false },
   ];
 
-  const userLinks = [
-    { name: "Dashboard", path: "/dashboard" },
-  ];
+  const userLinks = [];
 
   const adminLinks = [
     { name: "Admin", path: "/admin" },
