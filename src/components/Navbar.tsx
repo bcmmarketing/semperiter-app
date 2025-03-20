@@ -100,24 +100,13 @@ const Navbar = () => {
         {/* Auth Buttons */}
         <div className="hidden md:flex items-center space-x-2">
           <ThemeToggle />
-          {true ? (
-            <Button 
-              variant="outline" 
-              className="font-medium border-brand-blue text-brand-blue hover:bg-brand-blue/10 dark:border-brand-yellow dark:text-brand-yellow dark:hover:bg-brand-yellow/20"
-              onClick={logout}
-            >
-              Salir
-            </Button>
-          ) : (
-            <>
-              <Button variant="outline" className="font-medium border-brand-blue text-brand-blue hover:bg-brand-blue/10 dark:border-brand-yellow dark:text-brand-yellow dark:hover:bg-brand-yellow/20" asChild>
-                <Link to="/login">Entrar</Link>
-              </Button>
-              <Button className="font-medium bg-brand-green hover:bg-brand-green/90 text-white dark:bg-brand-pink dark:hover:bg-brand-pink/90" asChild>
-                <Link to="/signup">Registrarse</Link>
-              </Button>
-            </>
-          )}
+          <Button 
+            variant="outline" 
+            className="font-medium border-brand-blue text-brand-blue hover:bg-brand-blue/10 dark:border-brand-yellow dark:text-brand-yellow dark:hover:bg-brand-yellow/20"
+            asChild
+          >
+            <Link to="/dashboard">Dashboard</Link>
+          </Button>
         </div>
         
         {/* Mobile Menu Button */}
@@ -182,27 +171,9 @@ const Navbar = () => {
             ))}
             <hr className="border-t border-gray-200 my-2" />
             <div className="flex flex-col space-y-2">
-              {true ? (
-                <Button 
-                  variant="outline" 
-                  className="font-medium"
-                  onClick={() => {
-                    setIsMenuOpen(false);
-                    logout();
-                  }}
-                >
-                  Salir
-                </Button>
-              ) : (
-                <>
-                  <Button variant="outline" className="font-medium" asChild>
-                    <Link to="/login" onClick={() => setIsMenuOpen(false)}>Entrar</Link>
-                  </Button>
-                  <Button className="font-medium" asChild>
-                    <Link to="/signup" onClick={() => setIsMenuOpen(false)}>Registrarse</Link>
-                  </Button>
-                </>
-              )}
+              <Button variant="outline" className="font-medium" asChild>
+                <Link to="/dashboard" onClick={() => setIsMenuOpen(false)}>Dashboard</Link>
+              </Button>
             </div>
           </div>
         </div>
