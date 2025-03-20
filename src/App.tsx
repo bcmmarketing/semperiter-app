@@ -4,7 +4,7 @@ import { AuthProvider } from "@/contexts/AuthContext";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { Layout } from "@/components/Layout";
 import { PrivateRoute } from "@/components/PrivateRoute";
 import Index from "./pages/Index";
@@ -46,7 +46,7 @@ const App = () => (
               <Route path="/legal/terms" element={<LegalNotice />} />
               <Route path="/destino/:id" element={<Destination />} />
               <Route path="/admin/*" element={<PrivateRoute requireAdmin><AdminRoutes /></PrivateRoute>} />
-              <Route path="/dashboard/*" element={<UserDashboard />} />
+              <Route path="/dashboard/*" element={<Navigate to="/admin" replace />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
             </Layout>

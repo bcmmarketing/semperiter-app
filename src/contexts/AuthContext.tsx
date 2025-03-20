@@ -20,33 +20,23 @@ interface AuthContextType {
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
 
 export function AuthProvider({ children }: { children: React.ReactNode }) {
-  const [user, setUser] = useState<User | null>(null);
-  const [token, setToken] = useState<string | null>(null);
+  const [user] = useState<User | null>({
+    id: 'demo',
+    name: 'Demo Admin',
+    email: 'admin@demo.com',
+    role: 'admin'
+  });
+  const [token] = useState<string | null>('demo-token');
   const navigate = useNavigate();
 
-  useEffect(() => {
-    const storedToken = localStorage.getItem('token');
-    const storedUser = localStorage.getItem('user');
-
-    if (storedToken && storedUser) {
-      setToken(storedToken);
-      setUser(JSON.parse(storedUser));
-    }
-  }, []);
+  // Modo demostración: no necesitamos useEffect
 
   const login = (newToken: string, newUser: User) => {
-    setToken(newToken);
-    setUser(newUser);
-    localStorage.setItem('token', newToken);
-    localStorage.setItem('user', JSON.stringify(newUser));
+    navigate('/admin');
   };
 
   const logout = () => {
-    setToken(null);
-    setUser(null);
-    localStorage.removeItem('token');
-    localStorage.removeItem('user');
-    navigate('/login');
+    navigate('/');
   };
 
   const value = {
@@ -55,7 +45,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     login,
     logout,
     isAuthenticated: true,
-    isAdmin: user?.role === 'admin'
+    isAdmin: true
   };
 
   return (
