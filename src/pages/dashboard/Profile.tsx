@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useAuth } from '@/contexts/AuthContext';
+import config from '@/config';
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -19,7 +20,7 @@ export default function Profile() {
     setLoading(true);
 
     try {
-      const response = await fetch('http://localhost:3001/api/users/profile', {
+      const response = await fetch(`${config.apiUrl}/api/users/profile`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
@@ -52,7 +53,7 @@ export default function Profile() {
     setLoading(true);
 
     try {
-      const response = await fetch('http://localhost:3001/api/users/password', {
+      const response = await fetch(`${config.apiUrl}/api/users/password`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',

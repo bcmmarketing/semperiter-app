@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useAuth } from '@/contexts/AuthContext';
+import config from '@/config';
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -31,7 +32,7 @@ export default function MyPhotos() {
 
   const fetchMyPhotos = async () => {
     try {
-      const response = await fetch('http://localhost:3005/api/photos/user', {
+      const response = await fetch(`${config.apiUrl}/api/photos/user`, {
         headers: {
           'Authorization': `Bearer ${token}`
         }
@@ -49,7 +50,7 @@ export default function MyPhotos() {
     }
 
     try {
-      const response = await fetch(`http://localhost:3005/api/photos/${photoId}`, {
+      const response = await fetch(`${config.apiUrl}/api/photos/${photoId}`, {
         method: 'DELETE',
         headers: {
           'Authorization': `Bearer ${token}`
