@@ -159,6 +159,20 @@ const Navbar = () => {
                   {link.name}
                 </Link>
               ))}
+            {isAuthenticated && userLinks.map((link) => (
+              <Link
+                key={link.path}
+                to={link.path}
+                className={`text-sm font-medium py-2 ${
+                  isActive(link.path)
+                    ? "text-primary font-semibold"
+                    : "text-foreground/80"
+                }`}
+                onClick={() => setIsMenuOpen(false)}
+              >
+                {link.name}
+              </Link>
+            ))}
             {isAdmin && adminLinks.map((link) => (
               <Link
                 key={link.path}
