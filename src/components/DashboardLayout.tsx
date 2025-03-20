@@ -1,9 +1,6 @@
 import { NavLink, Outlet } from 'react-router-dom';
-import { useAuth } from '@/contexts/AuthContext';
 
 export function DashboardLayout() {
-  const { user } = useAuth();
-
   return (
     <div className="container mx-auto px-4 py-8">
       <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
@@ -14,11 +11,11 @@ export function DashboardLayout() {
               <div className="flex items-center space-x-4 mb-6">
                 <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center">
                   <span className="text-xl font-semibold text-primary">
-                    {user?.email?.[0].toUpperCase()}
+                    U
                   </span>
                 </div>
                 <div>
-                  <h2 className="font-semibold">{user?.email}</h2>
+                  <h2 className="font-semibold">Usuario</h2>
                   <p className="text-sm text-muted-foreground">Dashboard</p>
                 </div>
               </div>

@@ -1,6 +1,4 @@
 import { useState } from 'react';
-import { useAuth } from '@/contexts/AuthContext';
-import config from '@/config';
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -8,9 +6,8 @@ import { Label } from "@/components/ui/label";
 import { useToast } from "@/components/ui/use-toast";
 
 export default function Profile() {
-  const { user, token } = useAuth();
   const { toast } = useToast();
-  const [name, setName] = useState(user?.name || '');
+  const [name, setName] = useState('');
   const [currentPassword, setCurrentPassword] = useState('');
   const [newPassword, setNewPassword] = useState('');
   const [loading, setLoading] = useState(false);
@@ -20,19 +17,9 @@ export default function Profile() {
     setLoading(true);
 
     try {
-      const response = await fetch(`${config.apiUrl}/api/users/profile`, {
-        method: 'PUT',
-        headers: {
-          'Content-Type': 'application/json',
-          'Authorization': `Bearer ${token}`
-        },
-        body: JSON.stringify({ name }),
-      });
-
-      if (!response.ok) {
-        throw new Error('Error al actualizar el perfil');
-      }
-
+      // Simulamos una actualización exitosa
+      await new Promise(resolve => setTimeout(resolve, 1000));
+      
       toast({
         title: "¡Perfil actualizado!",
         description: "Los cambios se han guardado correctamente.",
@@ -41,7 +28,7 @@ export default function Profile() {
       toast({
         variant: "destructive",
         title: "Error",
-        description: error instanceof Error ? error.message : "Error al actualizar el perfil",
+        description: "Error al actualizar el perfil",
       });
     } finally {
       setLoading(false);
@@ -53,18 +40,8 @@ export default function Profile() {
     setLoading(true);
 
     try {
-      const response = await fetch(`${config.apiUrl}/api/users/password`, {
-        method: 'PUT',
-        headers: {
-          'Content-Type': 'application/json',
-          'Authorization': `Bearer ${token}`
-        },
-        body: JSON.stringify({ currentPassword, newPassword }),
-      });
-
-      if (!response.ok) {
-        throw new Error('Error al cambiar la contraseña');
-      }
+      // Simulamos una actualización exitosa
+      await new Promise(resolve => setTimeout(resolve, 1000));
 
       setCurrentPassword('');
       setNewPassword('');

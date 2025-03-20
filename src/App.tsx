@@ -46,7 +46,7 @@ const App = () => (
               <Route path="/legal/terms" element={<LegalNotice />} />
               <Route path="/destino/:id" element={<Destination />} />
               <Route path="/admin/*" element={<PrivateRoute requireAdmin><AdminRoutes /></PrivateRoute>} />
-              <Route path="/dashboard/*" element={<PrivateRoute><UserDashboard /></PrivateRoute>} />
+              <Route path="/dashboard/*" element={<UserDashboard />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
             </Layout>
