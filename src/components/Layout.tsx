@@ -9,7 +9,7 @@ interface LayoutProps {
 
 export const Layout = ({ children }: LayoutProps) => {
   const location = useLocation();
-  const isAdminRoute = location.pathname.startsWith('/admin');
+  const hideFooter = location.pathname.startsWith('/admin') || location.pathname.startsWith('/dashboard');
 
   return (
     <>
@@ -17,7 +17,7 @@ export const Layout = ({ children }: LayoutProps) => {
       <main className="min-h-screen pt-[120px]">
         {children}
       </main>
-      {!isAdminRoute && <Footer />}
+      {!hideFooter && <Footer />}
     </>
   );
 };
