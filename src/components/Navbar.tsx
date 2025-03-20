@@ -30,10 +30,6 @@ const Navbar = () => {
     { name: "Contacto", path: "/contacto" },
   ];
 
-  const adminLinks = [
-    { name: "Admin", path: "/admin" },
-  ];
-
   const isActive = (path: string) => location.pathname === path;
 
   return (
@@ -57,32 +53,6 @@ const Navbar = () => {
         {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center space-x-6">
           {links.map((link) => (
-            <Link
-              key={link.path}
-              to={link.path}
-              className={`text-sm font-medium transition-all duration-200 ${
-                isActive(link.path)
-                  ? "text-brand-blue dark:text-brand-green font-semibold"
-                  : "text-brand-navy/80 dark:text-brand-yellow hover:text-brand-navy dark:hover:text-brand-yellow/80"
-              }`}
-            >
-              {link.name}
-            </Link>
-          ))}
-          {isAdmin && adminLinks.map((link) => (
-            <Link
-              key={link.path}
-              to={link.path}
-              className={`text-sm font-medium transition-all duration-200 ${
-                isActive(link.path)
-                  ? "text-brand-blue dark:text-brand-green font-semibold"
-                  : "text-brand-navy/80 dark:text-brand-yellow hover:text-brand-navy dark:hover:text-brand-yellow/80"
-              }`}
-            >
-              {link.name}
-            </Link>
-          ))}
-          {isAdmin && adminLinks.map((link) => (
             <Link
               key={link.path}
               to={link.path}
@@ -141,34 +111,7 @@ const Navbar = () => {
                   {link.name}
                 </Link>
               ))}
-            {isAdmin && adminLinks.map((link) => (
-              <Link
-                key={link.path}
-                to={link.path}
-                className={`text-sm font-medium py-2 ${
-                  isActive(link.path)
-                    ? "text-primary font-semibold"
-                    : "text-foreground/80"
-                }`}
-                onClick={() => setIsMenuOpen(false)}
-              >
-                {link.name}
-              </Link>
-            ))}
-            {isAdmin && adminLinks.map((link) => (
-              <Link
-                key={link.path}
-                to={link.path}
-                className={`text-sm font-medium py-2 ${
-                  isActive(link.path)
-                    ? "text-primary font-semibold"
-                    : "text-foreground/80"
-                }`}
-                onClick={() => setIsMenuOpen(false)}
-              >
-                {link.name}
-              </Link>
-            ))}
+
             <hr className="border-t border-gray-200 my-2" />
             <div className="flex flex-col space-y-2">
               <Button variant="outline" className="font-medium" asChild>
