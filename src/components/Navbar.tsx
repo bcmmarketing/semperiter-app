@@ -100,7 +100,7 @@ const Navbar = () => {
         {/* Auth Buttons */}
         <div className="hidden md:flex items-center space-x-2">
           <ThemeToggle />
-          {isAuthenticated ? (
+          {true ? (
             <Button 
               variant="outline" 
               className="font-medium border-brand-blue text-brand-blue hover:bg-brand-blue/10 dark:border-brand-yellow dark:text-brand-yellow dark:hover:bg-brand-yellow/20"
@@ -182,7 +182,7 @@ const Navbar = () => {
             ))}
             <hr className="border-t border-gray-200 my-2" />
             <div className="flex flex-col space-y-2">
-              {isAuthenticated ? (
+              {true ? (
                 <Button 
                   variant="outline" 
                   className="font-medium"

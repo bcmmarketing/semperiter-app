@@ -10,13 +10,7 @@ export function PrivateRoute({ children, requireAdmin = false }: PrivateRoutePro
   const { isAuthenticated, isAdmin } = useAuth();
   const location = useLocation();
 
-  if (!isAuthenticated) {
-    return <Navigate to="/login" state={{ from: location }} replace />;
-  }
-
-  if (requireAdmin && !isAdmin) {
-    return <Navigate to="/dashboard" replace />;
-  }
+  // Sin restricciones
 
   return <>{children}</>;
 }
