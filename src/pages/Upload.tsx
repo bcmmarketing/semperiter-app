@@ -40,11 +40,7 @@ const Upload = () => {
   const { token, isAuthenticated } = useAuth();
   const navigate = useNavigate();
 
-  useEffect(() => {
-    if (!isAuthenticated) {
-      navigate('/login');
-    }
-  }, [isAuthenticated, navigate]);
+
 
   const continents = [
     'África', 'América del Norte', 'América del Sur', 'Asia', 

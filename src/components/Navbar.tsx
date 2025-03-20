@@ -29,8 +29,12 @@ const Navbar = () => {
     { name: "Contacto", path: "/contacto", protected: false },
   ];
 
+  const userLinks = [
+    { name: "Dashboard", path: "/dashboard" },
+  ];
+
   const adminLinks = [
-    { name: "Dashboard", path: "/admin" },
+    { name: "Admin", path: "/admin" },
   ];
 
   const isActive = (path: string) => location.pathname === path;
@@ -70,6 +74,19 @@ const Navbar = () => {
                 {link.name}
               </Link>
             ))}
+          {isAuthenticated && userLinks.map((link) => (
+            <Link
+              key={link.path}
+              to={link.path}
+              className={`text-sm font-medium transition-all duration-200 ${
+                isActive(link.path)
+                  ? "text-brand-blue dark:text-brand-green font-semibold"
+                  : "text-brand-navy/80 dark:text-brand-yellow hover:text-brand-navy dark:hover:text-brand-yellow/80"
+              }`}
+            >
+              {link.name}
+            </Link>
+          ))}
           {isAdmin && adminLinks.map((link) => (
             <Link
               key={link.path}
