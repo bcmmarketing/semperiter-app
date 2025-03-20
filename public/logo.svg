@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500">
+  <defs>
+    <linearGradient id="circleGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#00ffcc"/>
+      <stop offset="25%" style="stop-color:#0099ff"/>
+      <stop offset="50%" style="stop-color:#ff3399"/>
+      <stop offset="75%" style="stop-color:#ff6633"/>
+      <stop offset="100%" style="stop-color:#ffcc00"/>
+    </linearGradient>
+  </defs>
+  
+  <!-- Círculo exterior con degradado -->
+  <circle cx="250" cy="250" r="240" fill="none" stroke="url(#circleGradient)" stroke-width="20"/>
+  
+  <!-- Texto superior "semperiter.com" -->
+  <text x="250" y="130" text-anchor="middle" font-family="Arial" font-weight="bold" font-size="48" fill="#1a237e">semperiter.com</text>
+  
+  <!-- Texto inferior "share your dreams" -->
+  <text x="250" y="380" text-anchor="middle" font-family="Arial" font-weight="bold" font-size="36" fill="#1a237e">share your dreams</text>
+  
+  <!-- Iconos de viaje con degradado -->
+  <g fill="none" stroke="url(#circleGradient)" stroke-width="2">
+    <!-- Torre Eiffel -->
+    <path d="M150,200 l20,-40 l20,40 m-30,-20 l20,0" stroke="#00ffcc"/>
+    
+    <!-- Pagoda -->
+    <path d="M200,180 c0,0 10,-10 20,0 c0,0 -10,10 -20,0 m0,10 c0,0 15,-10 30,0" stroke="#0099ff"/>
+    
+    <!-- Puente -->
+    <path d="M240,200 c0,-20 40,-20 40,0" stroke="#3366ff"/>
+    
+    <!-- Opera de Sydney -->
+    <path d="M300,200 c0,-20 20,-20 20,0 c0,20 -20,20 -20,0" stroke="#6633ff"/>
+    
+    <!-- Estatua de la Libertad -->
+    <path d="M340,180 l10,-30 l10,30 m-15,-15 l10,0" stroke="#9933ff"/>
+    
+    <!-- Pirámides -->
+    <path d="M150,260 l20,-20 l20,20" stroke="#cc33ff"/>
+    
+    <!-- Taj Mahal -->
+    <path d="M200,260 c0,-20 30,-20 30,0 c0,20 -30,20 -30,0" stroke="#ff33cc"/>
+    
+    <!-- Globo aerostático -->
+    <path d="M250,250 c0,-15 20,-15 20,0 l-10,10" stroke="#ff3366"/>
+    
+    <!-- Torre de Pisa -->
+    <path d="M290,260 l5,-20 m-2.5,0 l5,20" stroke="#ff6633"/>
+    
+    <!-- Cámara -->
+    <path d="M330,260 l20,0 l0,15 l-20,0 z m5,-5 l10,0" stroke="#ffcc00"/>
+    
+    <!-- Palmera -->
+    <path d="M370,260 c0,0 5,-10 0,-20 c-5,10 -10,20 0,20" stroke="#00ffcc"/>
+    
+    <!-- Avión -->
+    <path d="M180,220 l30,-10 l-30,-10" stroke="#0099ff"/>
+    
+    <!-- Barco -->
+    <path d="M230,220 l20,0 l5,10 l-30,0 l5,-10" stroke="#ff3399"/>
+    
+    <!-- Sol -->
+    <circle cx="280" cy="220" r="8" stroke="#ffcc00"/>
+    
+    <!-- Estrellas -->
+    <path d="M320,210 l2,2 l-2,2 l-2,-2 z" stroke="#ffcc00"/>
+    <path d="M340,215 l2,2 l-2,2 l-2,-2 z" stroke="#ffcc00"/>
+  </g>
+</svg>

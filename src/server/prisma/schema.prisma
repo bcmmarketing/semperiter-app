@@ -1,0 +1,38 @@
+datasource db {
+  provider = "sqlite"
+  url      = "file:./dev.db"
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model User {
+  id        String   @id @default(uuid())
+  email     String   @unique
+  password  String
+  name      String
+  role      String   @default("user") // "admin" o "user"
+  photos    Photo[]
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Photo {
+  id           String   @id @default(uuid())
+  filename     String
+  originalName String
+  title        String
+  country      String
+  continent    String?
+  region       String?
+  city         String?
+  blurFaces    Boolean  @default(false)
+  status       String   @default("pending")
+  latitude     Float?
+  longitude    Float?
+  userId       String
+  user         User     @relation(fields: [userId], references: [id])
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+}

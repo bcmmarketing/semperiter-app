@@ -1,0 +1,22 @@
+/* Ajustar z-index del mapa */
+.leaflet-container {
+  z-index: 1 !important;
+}
+
+.leaflet-popup-content-wrapper {
+  padding: 0 !important;
+  border-radius: 0.5rem !important;
+}
+
+.leaflet-popup-content {
+  margin: 0 !important;
+  width: auto !important;
+}
+
+.leaflet-popup {
+  margin-bottom: 20px !important;
+}
+
+.leaflet-popup-tip-container {
+  margin-top: -1px !important;
+}
